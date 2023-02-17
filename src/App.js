@@ -19,7 +19,7 @@ function App() {
 
   const handleSubmit = () => {
     const userAnswer = [parseInt(answer1), parseInt(answer2)];
-  
+
     const isCorrect = userAnswer[0] === expectedAnswer[0] && userAnswer[1] === expectedAnswer[1];
 
     setAlertVariant(isCorrect ? 'success' : 'danger');
@@ -70,7 +70,7 @@ function App() {
               return `(${p[0]},${p[1]})`
             })}(<input className='AnswerInput' type="text" value={answer1} onChange={(e) => setAnswer1(e.target.value)} />,<input className='AnswerInput' type="text" value={answer2} onChange={(e) => setAnswer2(e.target.value)} />)</h1>
             <div style={{margin:"50px"}}>
-              <Button variant="dark" onClick={handleSubmit}>Submit</Button>
+              <Button disabled={answer1 == '' || answer2 == '' ? true:false} variant="dark" onClick={handleSubmit}>Submit</Button>
             </div>
           </div>
           {showAlert && <Alert style={{ backgroundColor: alertVariant === 'danger' ? "red" : "green", color: 'white', position: 'relative' }} className="mt-4">{alertVariant === 'danger' ? <CloseIcon/> : <DoneIcon/>}{alertMessage}{<Button className='nextButton' variant="light" onClick={handleNextProblem}>Next</Button>}</Alert>}
