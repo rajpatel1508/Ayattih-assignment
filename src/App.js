@@ -28,11 +28,11 @@ function App() {
   };
 
   const handleNextProblem = () => {
-    const a1 = Math.floor(Math.random() * 20);
-    const a2 = Math.floor(Math.random() * 20);
-    const d1 = Math.floor(Math.random() * 20);
-    const d2 = Math.floor(Math.random() * 20);
-    const d3 = Math.floor(Math.random() * 20);
+    const a1 = Math.floor((Math.random() * 19) + 1);
+    const a2 = Math.floor((Math.random() * 19) + 1);
+    const d1 = Math.floor((Math.random() * 19) + 1);
+    const d2 = Math.floor((Math.random() * 19) + 1);
+    const d3 = Math.floor((Math.random() * 19) + 1);
     let pre1 = a1, pre2 = a2;
     let newproblem = [];
     newproblem.push([a1, a2]);
@@ -73,7 +73,7 @@ function App() {
               <Button variant="dark" onClick={handleSubmit}>Submit</Button>
             </div>
           </div>
-          {showAlert && <Alert style={{ backgroundColor: alertVariant === 'danger' ? "red" : "green", color: 'white', position: 'relative' }} className="mt-4">{alertVariant === 'danger' ? <CloseIcon/> : <DoneIcon/>}{alertMessage}{showAlert && <Button className='nextButton' variant="light" onClick={handleNextProblem}>Next</Button>}</Alert>}
+          {showAlert && <Alert style={{ backgroundColor: alertVariant === 'danger' ? "red" : "green", color: 'white', position: 'relative' }} className="mt-4">{alertVariant === 'danger' ? <CloseIcon/> : <DoneIcon/>}{alertMessage}{<Button className='nextButton' variant="light" onClick={handleNextProblem}>Next</Button>}</Alert>}
         </Container>
       </div>
     </div>
